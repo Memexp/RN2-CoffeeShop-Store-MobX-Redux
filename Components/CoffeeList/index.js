@@ -15,8 +15,8 @@ import { connect } from "react-redux";
 class CoffeeList extends Component {
   render() {
     let shops;
-    if (coffeeshops) {
-      shops = coffeeshops.map(coffeeShop => (
+    if (this.props.coffeeshops) {
+      shops = this.props.coffeeshops.map(coffeeShop => (
         <CoffeeItem coffeeShop={coffeeShop} key={coffeeShop.id} />
       ));
     }
