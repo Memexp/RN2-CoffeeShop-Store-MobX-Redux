@@ -42,8 +42,8 @@ class CoffeeDetail extends Component {
   };
 
   render() {
-    if (!coffeeshops) return <Content />;
-    const coffeeshop = coffeeshops[0];
+    if (!this.props.coffeeshops) return <Content />;
+    const coffeeshop = this.props.coffeeshops[0];
     return (
       <Content>
         <List>
