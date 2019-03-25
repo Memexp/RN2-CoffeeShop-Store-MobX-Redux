@@ -4,10 +4,13 @@ import React, { Component } from "react";
 import { List, Content } from "native-base";
 
 // Store
-import coffeeshops from "./list";
+// import coffeeshops from "./list";
 
 // Component
 import CoffeeItem from "./CoffeeItem";
+
+// Redux
+import { connect } from "react-redux";
 
 class CoffeeList extends Component {
   render() {
@@ -25,4 +28,9 @@ class CoffeeList extends Component {
   }
 }
 
-export default CoffeeList;
+const mapStateToProps = state => {
+  return {
+    coffeeshops: state.coffee.coffeeShops
+  };
+};
+export default connect(mapStateToProps)(CoffeeList);

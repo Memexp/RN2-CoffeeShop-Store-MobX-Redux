@@ -17,8 +17,11 @@ import {
 // Style
 import styles from "./styles";
 
-//List
-import coffeeshops from "../CoffeeList/list";
+// //List
+// import coffeeshops from "../CoffeeList/list";
+
+// Redux
+import { connect } from "react-redux";
 
 class CoffeeDetail extends Component {
   state = {
@@ -93,4 +96,9 @@ class CoffeeDetail extends Component {
   }
 }
 
-export default CoffeeDetail;
+const mapStateToProps = state => {
+  return {
+    coffeeshops: state.coffee.coffeeShops
+  };
+};
+export default connect(mapStateToProps)(CoffeeDetail);
