@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 // NativeBase Components
-import { List, Content } from "native-base";
+import { List, Content, Spinner } from "native-base";
 
 // Store
 // import coffeeshops from "./list";
@@ -15,11 +15,15 @@ import { connect } from "react-redux";
 class CoffeeList extends Component {
   render() {
     let shops;
-    if (this.props.coffeeshops) {
-      shops = this.props.coffeeshops.map(coffeeShop => (
-        <CoffeeItem coffeeShop={coffeeShop} key={coffeeShop.id} />
-      ));
+
+    if (this.props.loading) {
+      <Spinner />;
     }
+
+    shops = this.props.coffeeshops.map(coffeeShop => (
+      <CoffeeItem coffeeShop={coffeeShop} key={coffeeShop.id} />
+    ));
+
     return (
       <Content>
         <List>{shops}</List>

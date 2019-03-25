@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Spinner } from "native-base";
 import HomePage from "./Components/HomePage";
 import { Provider } from "react-redux";
-import store from "./store/index";
+import store from "./store"; // it will automaticlly import index.js
 
 export default class App extends Component {
   state = {

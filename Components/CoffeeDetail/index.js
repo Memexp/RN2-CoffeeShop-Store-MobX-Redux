@@ -42,8 +42,9 @@ class CoffeeDetail extends Component {
   };
 
   render() {
-    if (!this.props.coffeeshops) return <Content />;
-    const coffeeshop = this.props.coffeeshops[0];
+    let coffeeshops = this.props.coffeeShops;
+    if (!coffeeshops) return <Content />;
+    const coffeeshop = coffeeshops[0];
     return (
       <Content>
         <List>
@@ -56,7 +57,7 @@ class CoffeeDetail extends Component {
             </Left>
             <Body />
             <Right>
-              <Thumbnail bordered source={coffeeshop.img} />
+              <Thumbnail bordered source={{ uri: coffeeshop.img }} />
             </Right>
           </ListItem>
           <ListItem style={{ borderBottomWidth: 0 }}>
@@ -99,6 +100,7 @@ class CoffeeDetail extends Component {
 const mapStateToProps = state => {
   return {
     coffeeshops: state.coffee.coffeeShops
+    // coffeeReducer: state,
   };
 };
 export default connect(mapStateToProps)(CoffeeDetail);
